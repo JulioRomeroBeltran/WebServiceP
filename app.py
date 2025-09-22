@@ -1,14 +1,23 @@
 from flask import Flask, jsonify
+import os  
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "<h1>Hola Mundo</h1>","<h1>Julio Emmanuel Romero Beltrán - 22031467</h1>"
+    return """
+    <h1>Hola Mundo</h1>
+    <h2>Julio Emmanuel Romero Beltrán - 22031467</h2>
+    """
 
 @app.route("/json")
 def json_response():
-    return jsonify({"mensaje": "Hola Mundo","nombre":"Julio Emmanuel Romero Beltran", "matricula": "22031467"})
+    return jsonify({
+        "mensaje": "Hola Mundo",
+        "nombre": "Julio Emmanuel Romero Beltrán",
+        "matricula": "22031467"
+    })
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
