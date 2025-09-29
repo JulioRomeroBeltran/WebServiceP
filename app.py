@@ -1,10 +1,7 @@
 from flask import Flask, jsonify
 import os
 
-# Configuración de la aplicación Flask
 app = Flask(__name__)
-
-# Rutas
 
 @app.route("/")
 def home():
@@ -92,10 +89,9 @@ def home():
 <body>
     <div class="container">
         <h1>¡Hola Mundo!</h1>
-        <h2>Aplicación de Bienvenida</h2>
         
         <!-- Datos mostrados con mejor formato -->
-        <span class="data-label">Desarrollador:</span>
+        <span class="data-label">Alumno:</span>
         <div class="data-value">Julio Emmanuel Romero Beltrán</div>
         
         <span class="data-label">Matrícula:</span>
@@ -115,7 +111,6 @@ def json_response():
     """
     Ruta que devuelve la respuesta JSON. Mantiene la funcionalidad original.
     """
-    # Se utiliza jsonify para asegurar que la respuesta sea un JSON válido
     return jsonify({
         "mensaje": "Hola Mundo",
         "nombre": "Julio Emmanuel Romero Beltrán",
@@ -123,9 +118,7 @@ def json_response():
     })
 
 if __name__ == "__main__":
-    # Obtiene el puerto del entorno (necesario para Render) o usa 5000 por defecto
     port = int(os.environ.get("PORT", 5000))
-    # '0.0.0.0' hace que la aplicación escuche en todas las interfaces públicas (necesario para Render)
     app.run(host="0.0.0.0", port=port)
 
 
