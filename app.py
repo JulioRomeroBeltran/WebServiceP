@@ -104,7 +104,7 @@ def home():
         </form>
 
         <p class="note">
-            ¡La ruta /json devuelve tu información en formato API!
+            ¡La ruta /json devuelve tu información en formato JSON!
         </p>
     </div>
 </body>
